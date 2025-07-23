@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <!-- モバイル対応ビューポート設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -11,9 +13,10 @@
     }
 
     .calendar-container {
-      max-width: 400px;
-      margin: 0 auto;
+      /* 画面幅いっぱいに広げる */
+      width: 100%;
       padding: 16px;
+      box-sizing: border-box;
     }
 
     .day-header {
@@ -28,6 +31,8 @@
       text-align: center;
       flex: 1;
       cursor: pointer;
+      padding: 4px 0;
+      box-sizing: border-box;
     }
 
     .day.active {
@@ -55,6 +60,7 @@
       font-size: 16px;
       padding-right: 8px;
       color: white;
+      flex-shrink: 0;
     }
 
     .session {
@@ -66,6 +72,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      box-sizing: border-box;
     }
 
     .session-title {
@@ -152,7 +159,8 @@
         <div class="time">13:00</div>
         <div class="session">
           <div class="session-title">ワークショップC</div>
-          <div class="session-location">@ルームC</div>
+          <div class="session-location">@ルームC
+          </div>
         </div>
       </div>
     </div>
