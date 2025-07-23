@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #192A37;
+      color: white;
+    }
+
+    .calendar-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .day {
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .day.active {
+      color: #D61213;
+      font-weight: bold;
+    }
+
+    .sessions {
+      display: none;
+    }
+
+    .sessions.active {
+      display: block;
+    }
+
+    .time-slot {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .time {
+      width: 48px;
+      text-align: right;
+      font-size: 16px;
+      padding-right: 8px;
+      color: white;
+    }
+
+    .session {
+      flex: 1;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 12px;
+      background-image: url('https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-85c2a2b9-b1d9-46b0-9e40-bef408095a97.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .session-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .session-location {
+      color: white;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="day-header">
+      <div class="day active" data-day="2">12/2<br>月</div>
+      <div class="day" data-day="3">12/3<br>火</div>
+      <div class="day" data-day="4">12/4<br>水</div>
+      <div class="day" data-day="5">12/5<br>木</div>
+    </div>
+
+    <!-- 12/2 のセッション（初期表示） -->
+    <div class="sessions active" data-day="2">
+      <div class="time-slot">
+        <div class="time">09:00</div>
+        <div class="session">
+          <div class="session-title">開会式</div>
+          <div class="session-location">@ホールA</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">10:30</div>
+        <div class="session">
+          <div class="session-title">基調講演「未来のモビリティ」</div>
+          <div class="session-location">@ホールB</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">12:00</div>
+        <div class="session">
+          <div class="session-title">ネットワーキングランチ</div>
+          <div class="session-location">@カフェエリア</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">13:30</div>
+        <div class="session">
+          <div class="session-title">パネルディスカッション：DX戦略</div>
+          <div class="session-location">@ホールC</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">15:00</div>
+        <div class="session">
+          <div class="session-title">ワークショップ「スマートマップ体験」</div>
+          <div class="session-location">@ワークショップルーム</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">17:00</div>
+        <div class="session">
+          <div class="session-title">クロージングリマークス</div>
+          <div class="session-location">@ホールA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12/3 のセッション -->
+    <div class="sessions" data-day="3">
+      <div class="time-slot">
+        <div class="time">10:00</div>
+        <div class="session">
+          <div class="session-title">セッションB</div>
+          <div class="session-location">@ホールB</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12/4 のセッション -->
+    <div class="sessions" data-day="4">
+      <div class="time-slot">
+        <div class="time">13:00</div>
+        <div class="session">
+          <div class="session-title">ワークショップC</div>
+          <div class="session-location">@ルームC</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12/5 のセッション -->
+    <div class="sessions" data-day="5">
+      <div class="time-slot">
+        <div class="time">11:00</div>
+        <div class="session">
+          <div class="session-title">ホテルチェックアウト</div>
+          <div class="session-location">@富士スピードウェイホテル</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">15:00</div>
+        <div class="session">
+          <div class="session-title">帰路</div>
+          <div>TWAF３日間のダイジェスト映像や会長からのARIGATOメッセージをお届けいたします。</div>
+          <div class="session-location">@日本→世界</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const dayEls = document.querySelectorAll('.day');
+    const sessionGroups = document.querySelectorAll('.sessions');
+
+    dayEls.forEach(dayEl => {
+      dayEl.addEventListener('click', () => {
+        const selectedDay = dayEl.getAttribute('data-day');
+
+        dayEls.forEach(d => d.classList.toggle('active', d === dayEl));
+        sessionGroups.forEach(group => {
+          const match = group.getAttribute('data-day') === selectedDay;
+          group.classList.toggle('active', match);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
