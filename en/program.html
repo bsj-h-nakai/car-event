@@ -1,18 +1,18 @@
-<!-- Toyota イベント一覧コンポーネント（ダークテーマ版） -->
+<!-- Toyota Event List Component (Dark Theme) -->
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プログラム</title>
+  <title>Program</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     body {
-      background-color: #192A37; /* タイムテーブルと同じダーク背景 */
+      background-color: #192A37; /* Same dark background as the timetable */
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 30px 20px 0;
-      color: #fff; /* 文字は白 */
+      color: #fff; /* Text color: white */
     }
 
     .event-list-container {
@@ -28,7 +28,7 @@
       align-items: center;
     }
 
-    /* 検索バー */
+    /* Search bar */
     .search-wrapper { flex: 1; min-width: 0; position: relative; }
     .search-wrapper svg { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #ccc; }
     .search-bar {
@@ -42,7 +42,7 @@
     }
     .search-bar::placeholder { color: #bbb; }
 
-    /* カテゴリタグ */
+    /* Category tags */
     .category-tags { display: flex; flex-wrap: wrap; gap: 8px; flex: 2; min-width: 0; }
     .category-tags label {
       display: inline-flex;
@@ -63,7 +63,7 @@
       color: #fff;
     }
 
-    /* 並び替え */
+    /* Sort filter */
     .sort-filter {
       padding: 8px 12px;
       border: 1px solid #384a5a;
@@ -74,7 +74,7 @@
       color: #fff;
     }
 
-    /* イベントリスト */
+    /* Event list */
     .event-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 20px; }
     .event-list li { margin: 0; padding: 0; }
     .event-item {
@@ -105,7 +105,7 @@
       text-align: center;
     }
 
-    /* モバイル対応 */
+    /* Mobile responsive */
     @media (max-width: 600px) {
       .controls { flex-direction: column; align-items: stretch; }
       .search-wrapper, .category-tags, .sort-filter { width: 100%; }
@@ -118,85 +118,85 @@
     <div class="controls">
       <div class="search-wrapper">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/></svg>
-        <input type="text" class="search-bar" placeholder="検索する">
+        <input type="text" class="search-bar" placeholder="Search">
       </div>
       <div class="category-tags">
         <input type="checkbox" id="cat-sdgs" data-cat="sdgs"><label for="cat-sdgs"># SDGs</label>
-        <input type="checkbox" id="cat-autonomous" data-cat="autonomous"><label for="cat-autonomous"># 自動運転</label>
-        <input type="checkbox" id="cat-ev" data-cat="ev"><label for="cat-ev"># 次世代モビリティ</label>
-        <input type="checkbox" id="cat-workcar" data-cat="workcar"><label for="cat-workcar"># はたらくクルマ</label>
-        <input type="checkbox" id="cat-entertainment" data-cat="entertainment"><label for="cat-entertainment"># エンタテイメント</label>
-        <input type="checkbox" id="cat-people" data-cat="people"><label for="cat-people"># 人物・物流・商用</label>
+        <input type="checkbox" id="cat-autonomous" data-cat="autonomous"><label for="cat-autonomous"># Autonomous Driving</label>
+        <input type="checkbox" id="cat-ev" data-cat="ev"><label for="cat-ev"># Next-Gen Mobility</label>
+        <input type="checkbox" id="cat-workcar" data-cat="workcar"><label for="cat-workcar"># Work Vehicles</label>
+        <input type="checkbox" id="cat-entertainment" data-cat="entertainment"><label for="cat-entertainment"># Entertainment</label>
+        <input type="checkbox" id="cat-people" data-cat="people"><label for="cat-people"># People/Logistics/Commercial</label>
       </div>
       <select class="sort-filter">
-        <option value="">並び替え</option>
-        <option value="wait-asc">待ち時間が短い順</option>
-        <option value="wait-desc">待ち時間が長い順</option>
+        <option value="">Sort</option>
+        <option value="wait-asc">Shortest wait time</option>
+        <option value="wait-desc">Longest wait time</option>
       </select>
     </div>
 
     <ul class="event-list">
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335121" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-a4fdc254-c08b-4e9c-9102-2b88e702ca8c.png" alt="レクサスマリン" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-a4fdc254-c08b-4e9c-9102-2b88e702ca8c.png" alt="Lexus Yacht" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">レクサスヨット体験</h3>
-            <p class="event-desc">レクサスが手がけるラグジュアリー・ヨットで東京湾をクルージング。</p>
-            <span class="wait-time">待ち時間: 30分</span>
+            <h3 class="event-title">Lexus Yacht Experience</h3>
+            <p class="event-desc">Cruise Tokyo Bay in a luxury yacht by Lexus.</p>
+            <span class="wait-time">Wait time: 30 min</span>
           </div>
         </a>
       </li>
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335122" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-8bf9dfdd-4972-49df-b021-7a2f3c644908.png" alt="自動運転デモ走行" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-8bf9dfdd-4972-49df-b021-7a2f3c644908.png" alt="Autonomous Demo Ride" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">小型モビリティ体験</h3>
-            <p class="event-desc">「歩くように移動する」をコンセプトに開発された、立ち乗り型の電動モビリティ。</p>
-            <span class="wait-time">待ち時間: 10分</span>
+            <h3 class="event-title">Compact Mobility Experience</h3>
+            <p class="event-desc">An electric stand-on mobility designed to move like walking.</p>
+            <span class="wait-time">Wait time: 10 min</span>
           </div>
         </a>
       </li>
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335124" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-0f3e5aa5-9ae1-4196-bac8-6efc0f7e696a.png" alt="JOBY" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-0f3e5aa5-9ae1-4196-bac8-6efc0f7e696a.png" alt="JOBY eVTOL Simulator" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">JOBY飛行シミュレーター体験</h3>
-            <p class="event-desc">空飛ぶクルマで注目される「JOBY」のeVTOL機を模したフライトシミュレーター。</p>
-            <span class="wait-time">待ち時間: 60分</span>
+            <h3 class="event-title">JOBY Flight Simulator Experience</h3>
+            <p class="event-desc">Experience a flight simulator modeled after JOBY's eVTOL flying car.</p>
+            <span class="wait-time">Wait time: 60 min</span>
           </div>
         </a>
       </li>
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335125" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-8ca4fa5c-e74a-418c-b556-2b00acfe209e.png" alt="GRカート" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-8ca4fa5c-e74a-418c-b556-2b00acfe209e.png" alt="GR Kart" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">GRカート体験</h3>
-            <p class="event-desc">カートでサーキットを駆け回ろう！</p>
-            <span class="wait-time">待ち時間: 15分</span>
+            <h3 class="event-title">GR Kart Experience</h3>
+            <p class="event-desc">Race around the circuit in a kart!</p>
+            <span class="wait-time">Wait time: 15 min</span>
           </div>
         </a>
       </li>
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335127" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-d0132252-1f93-43c0-9fd1-df46196d898a.png" alt="GRカート" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-d0132252-1f93-43c0-9fd1-df46196d898a.png" alt="GR Test Drive" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">GR試乗体験</h3>
-            <p class="event-desc">高出力エンジンと洗練されたデザインにより、パワフルでしなやかな走行性能を実現。</p>
-            <span class="wait-time">待ち時間: 15分</span>
+            <h3 class="event-title">GR Test Drive Experience</h3>
+            <p class="event-desc">Enjoy powerful and agile performance with a high-output engine and sleek design.</p>
+            <span class="wait-time">Wait time: 15 min</span>
           </div>
         </a>
       </li>
       <li>
         <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/361705/335129" class="event-item" data-cat="autonomous">
-          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-a8b85ccd-0df2-415f-91e2-5b4df0f198c8.png" alt="GRカート" class="thumbnail">
+          <img src="https://toyota-rx.eventos.tokyo/images/1066/1009/14123/361705-a8b85ccd-0df2-415f-91e2-5b4df0f198c8.png" alt="Off-Road Experience" class="thumbnail">
           <div class="event-info">
-            <h3 class="event-title">オフロード体験</h3>
-            <p class="event-desc">オフロード対応性能で、荒れた路面に挑めます。</p>
-            <span class="wait-time">待ち時間: 20分</span>
+            <h3 class="event-title">Off-Road Experience</h3>
+            <p class="event-desc">Challenge rough terrain with off-road capable vehicles.</p>
+            <span class="wait-time">Wait time: 20 min</span>
           </div>
         </a>
       </li>
-      <!-- 他のイベントアイテムも同様に配置 -->
+      <!-- Additional events follow the same pattern -->
     </ul>
   </div>
 
@@ -213,8 +213,8 @@
           .filter(ch => ch.checked)
           .map(ch => ch.dataset.cat);
 
-        // フィルタ
-        Array.from(document.querySelectorAll('.event-item')).forEach(item => {
+        // Filter items by keyword and category
+        document.querySelectorAll('.event-item').forEach(item => {
           const title = item.querySelector('.event-title').textContent.toLowerCase();
           const desc = item.querySelector('.event-desc').textContent.toLowerCase();
           const cats = item.dataset.cat.split(',');
@@ -223,19 +223,13 @@
           item.parentElement.style.display = (matchesKeyword && matchesCat) ? '' : 'none';
         });
 
-        // ソート
+        // Sort visible items by wait time
         const visibleLi = Array.from(list.children).filter(li => li.style.display !== 'none');
         visibleLi.sort((a, b) => {
-          const getWait = li => {
-            const text = li.querySelector('.wait-time').textContent;
-            const m = text.match(/\d+/);
-            return m ? parseInt(m[0], 10) : 0;
-          };
+          const getWait = li => parseInt(li.querySelector('.wait-time').textContent.match(/\d+/)[0], 10);
           const waitA = getWait(a);
           const waitB = getWait(b);
-          if (sortSelect.value === 'wait-asc')  return waitA - waitB;
-          if (sortSelect.value === 'wait-desc') return waitB - waitA;
-          return 0;
+          return sortSelect.value === 'wait-asc' ? waitA - waitB : sortSelect.value === 'wait-desc' ? waitB - waitA : 0;
         });
         visibleLi.forEach(li => list.appendChild(li));
       }

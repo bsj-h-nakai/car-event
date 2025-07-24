@@ -1,0 +1,205 @@
+<!-- Toyota Calendar Component (Mobile, Dark Theme) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Mobile viewport settings -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #192A37;
+      color: white;
+    }
+
+    .calendar-container {
+      /* Expand to full width */
+      width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .day {
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      padding: 4px 0;
+      box-sizing: border-box;
+    }
+
+    .day.active {
+      color: #D61213;
+      font-weight: bold;
+    }
+
+    .sessions {
+      display: none;
+    }
+
+    .sessions.active {
+      display: block;
+    }
+
+    .time-slot {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .time {
+      width: 48px;
+      text-align: right;
+      font-size: 16px;
+      padding-right: 8px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .session {
+      flex: 1;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 12px;
+      background-image: url('https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-85c2a2b9-b1d9-46b0-9e40-bef408095a97.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+    }
+
+    .session-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .session-location {
+      color: white;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="day-header">
+      <div class="day active" data-day="2">Dec 2<br>Mon</div>
+      <div class="day" data-day="3">Dec 3<br>Tue</div>
+      <div class="day" data-day="4">Dec 4<br>Wed</div>
+      <div class="day" data-day="5">Dec 5<br>Thu</div>
+    </div>
+
+    <!-- Sessions for Dec 2 (initial view) -->
+    <div class="sessions active" data-day="2">
+      <div class="time-slot">
+        <div class="time">09:00</div>
+        <div class="session">
+          <div class="session-title">Opening Ceremony</div>
+          <div class="session-location">@ Hall A</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">10:30</div>
+        <div class="session">
+          <div class="session-title">Keynote: "Future of Mobility"</div>
+          <div class="session-location">@ Hall B</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">12:00</div>
+        <div class="session">
+          <div class="session-title">Networking Lunch</div>
+          <div class="session-location">@ Café Area</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">13:30</div>
+        <div class="session">
+          <div class="session-title">Panel Discussion: DX Strategies</div>
+          <div class="session-location">@ Hall C</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">15:00</div>
+        <div class="session">
+          <div class="session-title">Workshop: "Smart Map Experience"</div>
+          <div class="session-location">@ Workshop Room</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">17:00</div>
+        <div class="session">
+          <div class="session-title">Closing Remarks</div>
+          <div class="session-location">@ Hall A</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions for Dec 3 -->
+    <div class="sessions" data-day="3">
+      <div class="time-slot">
+        <div class="time">10:00</div>
+        <div class="session">
+          <div class="session-title">Session B</div>
+          <div class="session-location">@ Hall B</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions for Dec 4 -->
+    <div class="sessions" data-day="4">
+      <div class="time-slot">
+        <div class="time">13:00</div>
+        <div class="session">
+          <div class="session-title">Workshop C</div>
+          <div class="session-location">@ Room C</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions for Dec 5 -->
+    <div class="sessions" data-day="5">
+      <div class="time-slot">
+        <div class="time">11:00</div>
+        <div class="session">
+          <div class="session-title">Hotel Check-out</div>
+          <div class="session-location">@ Fuji Speedway Hotel</div>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time">15:00</div>
+        <div class="session">
+          <div class="session-title">Departure</div>
+          <div class="session-desc">Highlights from TWAF over three days and a special "ARIGATO" message from the Chairman</div>
+          <div class="session-location">@ Japan → Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const dayEls = document.querySelectorAll('.day');
+    const sessionGroups = document.querySelectorAll('.sessions');
+
+    dayEls.forEach(dayEl => {
+      dayEl.addEventListener('click', () => {
+        const selectedDay = dayEl.getAttribute('data-day');
+
+        dayEls.forEach(d => d.classList.toggle('active', d === dayEl));
+        sessionGroups.forEach(group => {
+          const match = group.getAttribute('data-day') === selectedDay;
+          group.classList.toggle('active', match);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

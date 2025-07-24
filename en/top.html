@@ -1,0 +1,273 @@
+<style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #192A37;
+      color: white;
+    }
+
+    .home-screen {
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .header {
+      position: relative;
+      height: 580px;
+      overflow: visible;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay-logo {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      max-width: 300px;
+      z-index: 2;
+    }
+
+    .button-section {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+    }
+
+    .button-shadow-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .button-shadow-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-58b3c2da-c6ef-431e-9fef-39dcb2bc61a9.png') no-repeat center/contain;
+      z-index: 0;
+    }
+
+    .button-row-large {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .button-wrapper {
+      flex: 1;
+    }
+
+    .grid-button {
+      background-color: transparent;
+      border: none;
+      border-radius: 12px;
+      padding: 0;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .grid-button img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .floating-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .section-title {
+      margin: 32px 16px 12px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .area-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+      padding: 0 16px 0px;
+    }
+
+    .area-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .area-card {
+      min-width: 240px;
+      scroll-snap-align: start;
+      background-color: #1f2a3c;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      width: 80%;
+    }
+
+    .area-card img {
+      width: 100%;
+      display: block;
+      margin-left: 16px;
+    }
+
+    .map-card {
+      margin: 24px 16px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .map-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .link-list {
+      padding: 0 16px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid #2c3e50;
+    }
+
+    .text-link {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .link-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .link-icon-right {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      flex-shrink: 0;
+    }
+
+    .text {
+      flex-grow: 1;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-screen">
+    <div class="header">
+      <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-1eb7c46b-ea13-48ba-9a91-974c94cb49bb.png" class="background" alt="背景">
+      <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-5ee4b063-bb2e-41f4-b378-5a9cbfbe6add.png" class="overlay-logo" alt="ロゴ">
+      <div class="button-section">
+        <div class="button-shadow-container">
+          <div class="button-row-large">
+            <div class="button-wrapper">
+              <a href="https://toyota-rx.eventos.tokyo/web/portal/1009/event/14123/users/mypage/my-ticket" class="grid-button">
+                <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-23be1245-4181-4fff-ba6e-0b81a3d7ffa2.png" alt="予約済みチケット">
+              </a>
+            </div>
+            <div class="button-wrapper">
+              <a href="https://toyota-rx.eventos.tokyo/uri/united_web_link/1009/14123/367387/27066" target="_blank" rel="noopener noreferrer" class="grid-button">
+                <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-87440783-d262-4b43-9249-92a4783bf83d.png" alt="QRコード">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="floating-buttons">
+      <a href="https://bsj-h-nakai.github.io/car-event/time.html" class="grid-button">
+        <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-a4ee25ba-023c-4398-b9ea-3d19e474b019.png" alt="全体スケジュール">
+      </a>
+      <a href="https://bsj-h-nakai.github.io/car-event/program" class="grid-button">
+        <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-211df999-246a-419d-b7f3-5c0675278dc5.png" alt="プログラム・待ち時間">
+      </a>
+      <a href="https://toyota-rx.eventos.tokyo/web/portal/1009/event/14123/module/web_page/367732/0" class="grid-button">
+        <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-69c9f175-7095-4f51-9c1b-d803e7c22f91.png" alt="配信コンテンツ">
+      </a>
+    </div>
+
+    <div class="section-title">エリア紹介</div>
+    <div class="area-scroll">
+        <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/367155/335149" class="area-card">
+            <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-de5a4c9f-3b47-4ddf-832c-388b2aa10f89.png" alt="TOKYO">
+          </a>
+          <a href="link.html" class="area-card">
+            <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-f98372e8-65ca-481e-a35d-b55396f49335.png" alt="Aぱど">
+          </a>
+          <a href="link.html" class="area-card">
+            <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-d6c9776b-5231-4622-8eab-973f7b6cf8b7.png" alt="オフロード">
+          </a>
+          <a href="link.html" class="area-card">
+            <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-2e69141d-8a3e-4b18-b014-e3b568748fa9.png" alt="オフロード">
+          </a>
+    </div>
+
+    <div class="map-card">
+      <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/live_map/1009/14123/361436">
+        <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-2151359d-d97c-4a11-972d-f2410e3b6cbb.png" alt="エリアマップ">
+      </a>
+    </div>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a href="link.html" class="text-link">
+          <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-7da79a88-0fb1-4982-bb3c-95c4af6c0424.png" class="link-icon" alt="info">
+          <span class="text">インフォメーション</span>
+          <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-9c340ac3-b2f9-457a-8f59-e9e9320dc142.png" class="link-icon-right" alt="矢印">
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="link.html" class="text-link">
+          <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-5680591f-4f0b-4c6d-ba8e-3b85d34f1a63.png" class="link-icon" alt="privacy">
+          <span class="text">プライバシーポリシー</span>
+          <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-9c340ac3-b2f9-457a-8f59-e9e9320dc142.png" class="link-icon-right" alt="矢印">
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
