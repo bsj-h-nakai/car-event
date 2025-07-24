@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Day Layout Mobile</title>
+  <style>
+    /** 全体リセット **/
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: sans-serif;
+      background-color: #192A37;
+      color: white;
+    }
+    
+    /** day-block **/
+    .day-block {
+      display: block;                 /* ブロック要素化してクリック範囲を広げる */
+      margin-bottom: 24px;
+      background-color: #334B59;      /* 背景と差をつけたダークブルー */
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      padding: 16px;
+      text-decoration: none;          /* リンクの下線を消す */
+      color: inherit;
+      transition: transform 0.1s;
+      cursor: pointer;
+    }
+    .day-block:hover {
+      transform: translateY(-2px);
+      background-color: #33475a;
+    }
+
+    .thumbnail {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* day-box はタイトル風にスタイル調整 */
+    .day-box {
+      font-size: 24px;
+      font-weight: bold;
+      flex-shrink: 0;
+      color: #FFD700;                 /* 強調カラー */
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      padding: 0;
+      border-radius: 0;
+      position: static;
+      display: inline-block;
+    }
+
+    .text-block {
+      font-size: 16px;
+      line-height: 1.6;
+      flex: 1;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .day-box {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- DAY2 -->
+  <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/367704/335290" class="day-block">
+    <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-c9cea907-56b4-4809-bb79-f1c90c3a1321.png" alt="DAY2 Thumbnail" class="thumbnail">
+    <div class="container">
+      <div class="day-box">DAY2</div>
+      <div class="text-block">
+        第一部のビジネスミーティングは約1.5時間で実施。
+        第二部ではReveal Showを実施。
+      </div>
+    </div>
+  </a>
+
+  <!-- DAY3 -->
+  <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/367704/335291" class="day-block">
+    <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-c9cea907-56b4-4809-bb79-f1c90c3a1321.png" alt="DAY3 Thumbnail" class="thumbnail">
+    <div class="container">
+      <div class="day-box">DAY3</div>
+      <div class="text-block">
+        盛大なフィナーレ演出！自動運転や立体音響レーザーや花火でARIGATOFESTを最高潮に！
+      </div>
+    </div>
+  </a>
+
+  <!-- DAY4 -->
+  <a href="toyota-rx-1009-14123://toyota-rx.eventos.tokyo/uri/booth/1009/14123/367704/335292" class="day-block">
+    <img src="https://toyota-rx.eventos.tokyo/file/wysiwyg/1066/file-c9cea907-56b4-4809-bb79-f1c90c3a1321.png" alt="DAY4 Thumbnail" class="thumbnail">
+    <div class="container">
+      <div class="day-box">DAY4</div>
+      <div class="text-block">
+        TWAF３日間のダイジェスト映像や会長からのARIGATOメッセージをお届け
+      </div>
+    </div>
+  </a>
+</body>
+</html>
